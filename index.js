@@ -107,6 +107,26 @@ async function startBot() {
 
       return;
     }
+ 
+   if (text === ".daily") {
+
+  let id = from;
+
+  if (!economia[id]) economia[id] = 1000;
+
+  let premio = Math.floor(Math.random() * 500) + 100;
+
+  economia[id] += premio;
+
+  await sock.sendMessage(from, {
+    text: `🎁 Daily recibido
+
+💰 Ganaste: ${premio}
+🏦 Saldo: ${economia[id]}`
+  });
+
+  return;
+}
     if (text.startsWith(".pin")) {
 
       let busqueda = text.replace(".pin", "").trim();
