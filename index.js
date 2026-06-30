@@ -77,6 +77,36 @@ async function startBot() {
       "";
 
     console.log("MENSAJE RECIBIDO:", text);
+       if (text === ".menu") {
+
+      await sock.sendMessage(from, {
+        text: `💜 *AMORBOT*
+
+🤖 IA
+• .ia
+• .analisis
+
+🖼️ Imágenes
+• .pin
+• .wallpaper
+• .ext
+
+⚙️ Sistema
+• .ping
+• .menu`
+      });
+
+      return;
+    }
+
+    if (text === ".ping") {
+
+      await sock.sendMessage(from, {
+        text: "🏓 Pong! AmorBot está activo."
+      });
+
+      return;
+    }
     if (text.startsWith(".pin")) {
 
       let busqueda = text.replace(".pin", "").trim();
